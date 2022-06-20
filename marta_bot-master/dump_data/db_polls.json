@@ -1,0 +1,1 @@
+[{"model": "poll.poll", "pk": 1, "fields": {"title": "ƒл¤ сотрудников от 2 до 6 недель"}}, {"model": "poll.poll", "pk": 2, "fields": {"title": "ƒл¤ сотрудников от 6 до 12 недель"}}, {"model": "poll.poll", "pk": 3, "fields": {"title": "ƒл¤ сотрудников от 12 недель и больше"}}]

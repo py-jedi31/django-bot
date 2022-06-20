@@ -1,0 +1,4 @@
+release: python manage.py makemigrations
+release: python manage.py migrate
+web: gunicorn django_admin.web_service.wsgi:application  --log-file -
+bot: python3 bot/server.py --log-file -
