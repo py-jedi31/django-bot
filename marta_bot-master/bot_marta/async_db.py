@@ -3,12 +3,12 @@ import random
 
 import asyncpg
 from datetime import datetime
-
+# Импортируем settings.py
 try:
     import settings
 except ModuleNotFoundError:
     from bot_marta import settings
-
+# Создаем базу данных
 DATABASE = {
     "database": settings.DATABASES["default"]["NAME"],
     "user": settings.DATABASES["default"]["USER"],

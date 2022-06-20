@@ -1,3 +1,5 @@
+# Все доступные реплики бота
+
 WELCOME1 = "Привет! Меня зовут Марта, я твой помощник. Я буду с тобой на протяжении трёх месяцев, пока ты знакомишься с компанией и со своей должностью."
 WELCOME2 = "Нажми кнопку «Привет, Марта»"
 WELCOME3 = "В закреплённых сообщениях книги [«Скорость доверия»](https://mybook.ru/author/stiven-kovi/skorost-doveriya-to-chto-menyaet-vsyo/read/) и [«Искренний сервис»](https://mybook.ru/author/maksim-nedyakin/iskrennij-servis-kak-motivirovat-sotrudnikov-sdela/read/) - обязательно прочитай их. Они помогут тебе быстрее узнать культуру компании."
