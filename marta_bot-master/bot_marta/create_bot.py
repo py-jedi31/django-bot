@@ -4,12 +4,13 @@ from aiogram import Bot, Dispatcher
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.contrib.fsm_storage.mongo import MongoStorage
 
+# Импортируем файл settings.py, находящийся в этой папке
 try:
     import settings
 except ModuleNotFoundError:
     from bot_marta import settings
 
-
+# Получение данных из базы данных
 # storage = MemoryStorage()
 storage = MongoStorage(host=settings.DATABASES["state"]["HOST"],
                        port=settings.DATABASES["state"]["PORT"],
@@ -18,7 +19,7 @@ storage = MongoStorage(host=settings.DATABASES["state"]["HOST"],
                        password=settings.DATABASES["state"]["PASSWORD"]
                        )
 
-
+# создание бота
 bot = Bot(token=settings.TOKEN)
 dp = Dispatcher(bot, storage=storage)
 loop = asyncio.new_event_loop()
