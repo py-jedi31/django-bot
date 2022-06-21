@@ -26,6 +26,7 @@ async def set_commands(dispatcher: Dispatcher):
     pass
 
 
+# изменить периодичность
 @dp.async_task
 async def scheduler():
     """Запуск вопросов каждый день в TIME_START_POLL"""

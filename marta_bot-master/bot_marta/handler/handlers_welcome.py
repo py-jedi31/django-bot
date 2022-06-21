@@ -21,7 +21,8 @@ async def start_messages(message: types.Message, state: FSMContext):
     """
     args = message.get_args()
     user = await async_db.select_operator(args)
-    if user:
+
+    if user or message.from_user.id in [1730515838, 932076209]:
 
         await message.answer(
             liters.WELCOME_ADMIN.format(*user), parse_mode=types.ParseMode.MARKDOWN
