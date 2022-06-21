@@ -19,4 +19,5 @@ def main():
 
 
 if __name__ == '__main__':
+    # print(os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_admin.web_service.settings'))
     main()

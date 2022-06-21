@@ -1,3 +1,7 @@
+"""
+Здесь описаны модели Вопроса пользователя, Ответа модератора, Закреплённого сообщения, Новой новости
+"""
+
 from django.contrib.auth import get_user_model
 from django.db import models
 from django_admin.apps.poll.models import Member

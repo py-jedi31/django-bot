@@ -1,3 +1,7 @@
+"""
+Регистрируем в админке
+"""
+
 from django.contrib import admin
 from django_admin.web_service.admin_site import admin_site_settings
 from django.contrib.auth.admin import UserAdmin

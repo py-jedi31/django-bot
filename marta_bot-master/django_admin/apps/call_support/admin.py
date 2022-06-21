@@ -1,3 +1,7 @@
+"""
+Код для отображения в админке 
+"""
+
 import threading
 from django_admin.web_service.admin_site import admin_site_settings
 from django.contrib import admin
@@ -16,7 +20,8 @@ class MemberQuestionAdmin(admin.ModelAdmin):
     empty_value_display = '-----'
     ordering = ('-user', '-date_create', )
     list_filter = ('user',)
-
+    
+    # текст ответа на вопрос
     @admin.display(description='Ответ')
     def answer_title(self, obj):
         text = obj.text
@@ -26,29 +31,34 @@ class MemberQuestionAdmin(admin.ModelAdmin):
                 return f'{obj.text[:30]}...'
         return obj.text
 
+    # текст вопроса
     @admin.display(description='Вопрос')
     def question_title(self, obj):
         text = obj.question.text
         if len(text) > 30:
             return f'{obj.question.text[:30]}...'
         return obj.question.text
-
+    
+    # пользователь, задавший вопрос
     @admin.display(description='Пользователь')
     def member_name(self, obj):
         return obj.question.member.name
 
+    # дата ответа
     @admin.display(description='Дата ответа')
     def date_answer(self, obj):
         if not obj.text:
             return '-----'
         return obj.date_update
-
+    
+    # отвечено или нет
     @admin.display(description='Отвечено', boolean=True)
     def is_answer(self, obj):
         if obj.text:
             return True
         return False
 
+    # сохранение ответа
     def save_model(self, request, obj, form, change):
         obj.user = request.user
         t1 = threading.Thread(target=answer_support(obj))
@@ -61,8 +71,10 @@ class MemberQuestionAdmin(admin.ModelAdmin):
 class PinMessageAdmin(admin.ModelAdmin):
     """Закрепленное сообщение"""
     def save_model(self, request, obj, form, change):
+        # список пользователей, получающих сообщение?
         user_list = MemberState.objects.all()
         super().save_model(request, obj, form, change)
+        # edit_pin_message?
         t1 = threading.Thread(target=edit_pin_message(user_list, obj.text))
         t1.start()
         t1.join()
@@ -82,6 +94,7 @@ class NewsletterAdmin(admin.ModelAdmin):
         obj.cash = None
         super().save_model(request, obj, form, change)
         user_list = MemberState.objects.all()
+        # отправка новости?
         t1 = threading.Thread(target=send_newsletter(user_list, obj.text, obj.picture))
         t1.start()
         t1.join()

@@ -14,8 +14,8 @@ except ModuleNotFoundError:
 storage = MongoStorage(host=settings.DATABASES["state"]["HOST"],
                        port=settings.DATABASES["state"]["PORT"],
                        db_name=settings.DATABASES["state"]["NAME"],
-                       # username=settings.DATABASES["state"]["USERNAME"],
-                       # password=settings.DATABASES["state"]["PASSWORD"]
+                       username=settings.DATABASES["state"]["USERNAME"],
+                       password=settings.DATABASES["state"]["PASSWORD"]
                        )
 
 

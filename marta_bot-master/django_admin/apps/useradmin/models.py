@@ -1,3 +1,7 @@
+"""
+Описаны модели пользователя-администратора, обычного пользователя, состояния пользователя
+"""
+
 import datetime
 from django.utils import timezone
 from django.contrib.auth.models import AbstractUser, UserManager, Group

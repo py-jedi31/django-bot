@@ -1,3 +1,8 @@
+"""
+Здесь описаны модели Вопроса интерактива, Варианта ответа на вопрос, Ответ пользователя
+"""
+
+
 from django.contrib.auth import get_user_model
 from django.core.validators import validate_image_file_extension, FileExtensionValidator
 from django.db import models
